@@ -23,17 +23,15 @@ NSString *filePath;
 
 -(void)awakeFromNib {
 	NSError *err = nil;
-	filePath = [[[NSBundle mainBundle] 
-				pathForResource:@"index"
-				ofType:@"html"]retain];
-	
-	if ([[NSFileManager defaultManager]
+	filePath = @"index.html";
+	if (![[NSFileManager defaultManager]
 		 fileExistsAtPath:filePath]) {
-		mString = [NSString 
-			stringWithContentsOfFile:filePath 
-			encoding:NSUTF8StringEncoding error:&err];
-		
+		[[NSFileManager defaultManager] createFileAtPath:@"index.html" contents:nil attributes:nil];
 	}
+
+	mString = [NSString 
+			   stringWithContentsOfFile:filePath 
+			   encoding:NSUTF8StringEncoding error:&err];
 	[textView setString:mString];
 	NSURL *url = [NSURL fileURLWithPath:filePath];
 	[[webView mainFrame] loadRequest:[NSURLRequest 

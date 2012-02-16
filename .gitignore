@@ -3,3 +3,4 @@ build/
 English.lproj/
 *.pch
 *.xcodeproj
+.DS_Store

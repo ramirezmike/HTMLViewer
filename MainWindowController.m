@@ -26,7 +26,9 @@ NSString *filePath;
 	filePath = @"index.html";
 	if (![[NSFileManager defaultManager]
 		 fileExistsAtPath:filePath]) {
-		[[NSFileManager defaultManager] createFileAtPath:@"index.html" contents:nil attributes:nil];
+		[[NSFileManager defaultManager] 
+		 createFileAtPath:@"index.html" 
+		 contents:nil attributes:nil];
 	}
 
 	mString = [NSString 

@@ -43,7 +43,6 @@ NSString *filePath;
 
 -(void)textDidChange:(NSNotification *)pNotification
 {
-	NSLog(@"TEXT CHANGE");
 	[self save:nil];
 	
 	

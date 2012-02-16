@@ -1,0 +1,5 @@
+*.plist
+build/
+English.lproj/
+*.pch
+*.xcodeproj

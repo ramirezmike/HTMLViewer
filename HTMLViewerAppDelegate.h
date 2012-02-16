@@ -18,6 +18,7 @@ NSObject <NSApplicationDelegate> {
 }
 
 -(IBAction) showMainWindow:(id)sender;
+-(IBAction) save:(id)sender;
 
 
 @end

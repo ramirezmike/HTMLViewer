@@ -36,16 +36,15 @@ NSString *filePath;
 			   encoding:NSUTF8StringEncoding error:&err];
 	[textView setString:mString];
 	NSURL *url = [NSURL fileURLWithPath:filePath];
-	[[webView mainFrame] loadRequest:[NSURLRequest 
-			requestWithURL:url]];
+	[[webView mainFrame] loadHTMLString:mString baseURL:url];
 }
 
 
 -(void)textDidChange:(NSNotification *)pNotification
-{
-	[self save:nil];
-	
-	
+{	
+	mString = [textView string];
+	NSURL *url = [NSURL fileURLWithPath:filePath];
+	[[webView mainFrame] loadHTMLString:mString baseURL:url];
 }
 
 
@@ -54,13 +53,10 @@ NSString *filePath;
 	mString = [textView string];
 	if (![mString writeToFile:filePath 
 			atomically:YES 
-				encoding:NSUTF8StringEncoding error:&err])
+			encoding:NSUTF8StringEncoding error:&err])
 	{
 		NSLog(@"ERROR");
 	}
-	NSURL *url = [NSURL fileURLWithPath:filePath];
-	[[webView mainFrame] loadRequest:[NSURLRequest 
-									  requestWithURL:url]];
 }
 
 @end

@@ -26,6 +26,11 @@
 	[mainWin showWindow:nil];
 }
 
+-(IBAction) save:(id)sender {
+	[mainWin save:self];
+}
+
+
 -(void) dealloc {
 	[mainWin release];
 	[super dealloc];

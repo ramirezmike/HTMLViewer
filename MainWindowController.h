@@ -10,9 +10,13 @@
 @interface MainWindowController : NSWindowController {
 
 	id parent;
+	IBOutlet WebView *webView;
+	IBOutlet NSTextView *textView;
+	NSString *mString;
 }
 
 -(void)setParent:(id)sender;
+-(IBAction) save:(id)sender;
 
 
 @end
